@@ -26,8 +26,8 @@
 
 Drowsy driving accounts for ~20% road accidents in Canada. Road Buddy is an application that helps prevent drowsy driving accidents. It is developed for WearOS using Android Studio and Kotlin. <br>
 
-<img src = "awake.png" width = "300" height = "300" >
-<img src = "sleep.png" width = "300" height = "300" >
+<img src = "1_awake.png" width = "300" height = "300" >
+<img src = "2_sleep.png" width = "300" height = "300" >
 
 <h3>💡Concepts💡</h3>
 - We wanted to address one of GM's vision, "Zero Crashes". Although it may be virtually impossible to completely eliminate all accidents, we concentrate on preventing those that could happen due to drowsy driving which accounts for over 20% of road accidents in Canada. Research shows when people get drowsy, their heart rate is reduced. We developed a WearOS smartwatch app to send vibrations waking the user up when they're falling asleep while driving.
