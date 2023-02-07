@@ -13,6 +13,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class MainModule {
+    /**
+     * Returns an instance of Health Services Client
+     */
     @Singleton
     @Provides
     fun provideHealthServicesClient(@ApplicationContext context: Context): HealthServicesClient =

@@ -11,7 +11,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+/**
+ * Provides UI State logic
+ * Lifecycle aware class to manage data that survives configuration changes
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val healthServicesManager: HealthServicesManager) : ViewModel() {
@@ -25,6 +28,9 @@ class MainViewModel @Inject constructor(
     private val _heartRateBpm = MutableStateFlow(0.0)
     val heartRateBpm: StateFlow<Double> = _heartRateBpm
 
+    /**
+     * Check if the watch has heart rate capabilities, then switch UI State accordingly
+     */
     init {
         viewModelScope.launch {
             _uiState.value = if (healthServicesManager.hasHeartRateCapability()) {
@@ -35,6 +41,10 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Update message regarding heart rate availability if it changes
+     * Update the value of current heart rate collected from Health Services Manager flow
+     */
     @ExperimentalCoroutinesApi
     suspend fun measureHeartRate() {
         healthServicesManager.heartRateMeasureFlow().collect {
@@ -53,6 +63,9 @@ class MainViewModel @Inject constructor(
     }
 }
 
+/**
+ * Ui State objects
+ */
 sealed class UiState {
     object Startup : UiState()
     object HeartRateAvailable : UiState()
